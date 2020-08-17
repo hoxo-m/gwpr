@@ -1,7 +1,7 @@
 Package: gwpr
 Type: Package
 Title: Geographically Weighted Poission Regression
-Version: 0.0.0.9000
+Version: 0.0.0.9001
 Authors@R:
     person("Koji", "Makiyama", , "hoxo.smile@gmail.com", c("aut", "cre"))
 Description: Geographically weighted Poission regression.

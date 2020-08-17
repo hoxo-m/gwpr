@@ -10,28 +10,26 @@ gwpr <- function(df, formula, df_coord, offset = rep(1L, N),
   N <- nrow(X)
   K <- ncol(X)
 
-  beta <- matrix(rnorm(K, sd = 0.4), ncol = 1L)
+  beta <- matrix(rnorm(K), ncol = 1L)
+  beta[1] <- sum(O) / sum(offset)
 
   pb <- txtProgressBar(0L, N, style = 3L)
   params <- matrix(nrow = 0, ncol = K)
   for (i in seq_len(N)) {
+    ui <- df_coord[i, ]
+    w <- apply(df_coord, 1, function(uj) kernel_Gaussian(ui, uj, bandwidth))
+    W <- diag(w)
+    tXW <- t(X) %*% W
+
     iter <- 1L
     while (iter < max_iter) {
-      ui <- df_coord[i, ]
-      w <- apply(df_coord, 1, function(uj) kernel_Gaussian(ui, uj, bandwidth))
-      W <- diag(w)
-
       eta <- X %*% beta
-      A <- diag(as.vector(eta))
+      Ohat <- offset * exp(eta)
+      A <- diag(as.vector(Ohat))
+      z <- eta + (O - Ohat) / Ohat
 
-      Oj <- offset * exp(eta)
-      z <- eta + (O - Oj) / Oj
-
-      beta_next <- solve(t(X) %*% W %*% A %*% X) %*% t(X) %*% W %*% A %*% z
-      if (any(is.nan(beta_next))) {
-        return(Recall(df, formula, df_coord, offset, kernel, band_width,
-               max_iter, tot))
-      }
+      tXWA <- tXW %*% A
+      beta_next <- solve(tXWA %*% X) %*% tXWA %*% z
 
       diff <- beta_next - beta
       beta <- beta_next

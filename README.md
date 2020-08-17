@@ -36,7 +36,7 @@ head(df)
 library(gwpr)
 df_coord <- df[c("X", "Y")]
 params <- gwpr(df, dep ~ vars, df_coord,
-               kernel = "gaussian", band_width = 3)
+               kernel = "gaussian", bandwidth = 1)
 ```
 
 ``` r
@@ -51,19 +51,24 @@ ggplot(df_gg, aes(X, Y)) + geom_raster(aes(fill = vars)) +
 ### Change bandwidth
 
 ``` r
-params_bw1 <- gwpr(df, dep ~ vars, df_coord,
-                   kernel = "gaussian", band_width = 1)
+params_bw2 <- gwpr(df, dep ~ vars, df_coord,
+                   kernel = "gaussian", bandwidth = 2)
+params_bw3 <- gwpr(df, dep ~ vars, df_coord,
+                   kernel = "gaussian", bandwidth = 3)
 ```
 
 ``` r
-df_gg_bw1 <- cbind(params_bw1, df_coord)
+df_gg_bw2 <- cbind(params_bw2, df_coord)
+df_gg_bw3 <- cbind(params_bw3, df_coord)
 
-p1 <- ggplot(df_gg_bw1, aes(X, Y)) + geom_raster(aes(fill = vars)) +
+p1 <- ggplot(df_gg, aes(X, Y)) + geom_raster(aes(fill = vars)) +
   scale_fill_gradient2() + ggtitle("bandwidth = 1")
-p2 <- ggplot(df_gg, aes(X, Y)) + geom_raster(aes(fill = vars)) +
+p2 <- ggplot(df_gg_bw2, aes(X, Y)) + geom_raster(aes(fill = vars)) +
+  scale_fill_gradient2() + ggtitle("bandwidth = 2")
+p3 <- ggplot(df_gg_bw3, aes(X, Y)) + geom_raster(aes(fill = vars)) +
   scale_fill_gradient2() + ggtitle("bandwidth = 3")
 
-cowplot::plot_grid(p1, p2)
+cowplot::plot_grid(p1, p2, p3)
 ```
 
 <img src="man/figures/README-unnamed-chunk-7-1.png" width="800" />

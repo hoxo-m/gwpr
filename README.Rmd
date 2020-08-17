@@ -1,0 +1,69 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%",
+  cache = TRUE
+)
+```
+
+# Geographically Weighted Poisson Regression
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+## Installation
+
+You can install the package from [GitHub](https://github.com/hoxo-m/gwpr).
+
+```{r eval=FALSE}
+install.packages("remotes") # if you have not installed "remotes" package
+remotes::install_github("hoxo-m/gwpr")
+```
+
+## Example
+
+```{r}
+set.seed(123)
+df <- lctools::random.test.data(10, 10, 2, "poisson")
+head(df)
+```
+
+```{r, results='hide'}
+library(gwpr)
+df_coord <- df[c("X", "Y")]
+params <- gwpr(df, dep ~ vars, df_coord,
+               kernel = "gaussian", band_width = 3)
+```
+
+```{r out.width=400}
+library(ggplot2)
+df_gg <- cbind(params, df_coord)
+ggplot(df_gg, aes(X, Y)) + geom_raster(aes(fill = vars)) +
+  scale_fill_gradient2()
+```
+
+### Change bandwidth
+
+```{r, results='hide'}
+params_bw1 <- gwpr(df, dep ~ vars, df_coord,
+                   kernel = "gaussian", band_width = 1)
+```
+
+```{r fig.height=2.5, out.width=800}
+df_gg_bw1 <- cbind(params_bw1, df_coord)
+
+p1 <- ggplot(df_gg_bw1, aes(X, Y)) + geom_raster(aes(fill = vars)) +
+  scale_fill_gradient2() + ggtitle("bandwidth = 1")
+p2 <- ggplot(df_gg, aes(X, Y)) + geom_raster(aes(fill = vars)) +
+  scale_fill_gradient2() + ggtitle("bandwidth = 3")
+
+cowplot::plot_grid(p1, p2)
+```

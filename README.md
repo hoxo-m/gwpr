@@ -72,3 +72,18 @@ cowplot::plot_grid(p1, p2, p3)
 ```
 
 <img src="man/figures/README-unnamed-chunk-7-1.png" width="800" />
+
+## References
+
+  - Nakaya, Tomoki & Fotheringham, Alexander & Brunsdon, Chris &
+    Charlton, Martin. (2005). Geographically Weighted Poisson Regression
+    for Disease Association Mapping. Statistics in medicine. 24.
+    2695-717. 10.1002/sim.2129.
+
+## Related Work
+
+  - [spgwr: Geographically Weighted
+    Regression](https://cran.r-project.org/package=spgwr)
+  - [lctools: Local Correlation, Spatial Inequalities, Geographically
+    Weighted Regression and Other
+    Tools](https://cran.r-project.org/package=lctools)

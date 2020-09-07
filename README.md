@@ -83,7 +83,18 @@ cowplot::plot_grid(p1, p2, p3)
 ## Related Work
 
   - [spgwr: Geographically Weighted
-    Regression](https://cran.r-project.org/package=spgwr)
+    Regression](https://cran.r-project.org/package=spgwr) [![CRAN
+    Version](http://www.r-pkg.org/badges/version-ago/spgwr)](https://cran.r-project.org/package=spgwr)
+    [![CRAN
+    Downloads](https://cranlogs.r-pkg.org/badges/spgwr)](https://cran.r-project.org/package=spgwr)
+  - [GWmodel: Geographically-Weighted
+    Models](https://cran.r-project.org/package=GWmodel) [![CRAN
+    Version](http://www.r-pkg.org/badges/version-ago/GWmodel)](https://cran.r-project.org/package=GWmodel)
+    [![CRAN
+    Downloads](https://cranlogs.r-pkg.org/badges/GWmodel)](https://cran.r-project.org/package=GWmodel)
   - [lctools: Local Correlation, Spatial Inequalities, Geographically
     Weighted Regression and Other
-    Tools](https://cran.r-project.org/package=lctools)
+    Tools](https://cran.r-project.org/package=lctools) [![CRAN
+    Version](http://www.r-pkg.org/badges/version-ago/lctools)](https://cran.r-project.org/package=lctools)
+    [![CRAN
+    Downloads](https://cranlogs.r-pkg.org/badges/lctools)](https://cran.r-project.org/package=lctools)

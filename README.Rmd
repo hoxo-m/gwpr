@@ -80,12 +80,20 @@ cowplot::plot_grid(p1, p2, p3)
 ## Related Work
 
 - [spgwr: Geographically Weighted Regression](https://cran.r-project.org/package=spgwr)
-[![CRAN Version](http://www.r-pkg.org/badges/version-ago/spgwr)](https://cran.r-project.org/package=spgwr)
+  - [![CRAN Version](http://www.r-pkg.org/badges/version-ago/spgwr)](https://cran.r-project.org/package=spgwr)
 [![CRAN Downloads](https://cranlogs.r-pkg.org/badges/spgwr)](https://cran.r-project.org/package=spgwr)
+  - `ggwr()`: Generalised geographically weighted regression
+  - Fotheringham, A.S., Brunsdon, C., and Charlton, M.E., 2002, Geographically Weighted Regression, Chichester: Wiley; http://gwr.nuim.ie/
 - [GWmodel: Geographically-Weighted Models](https://cran.r-project.org/package=GWmodel)
-[![CRAN Version](http://www.r-pkg.org/badges/version-ago/GWmodel)](https://cran.r-project.org/package=GWmodel)
+  - [![CRAN Version](http://www.r-pkg.org/badges/version-ago/GWmodel)](https://cran.r-project.org/package=GWmodel)
 [![CRAN Downloads](https://cranlogs.r-pkg.org/badges/GWmodel)](https://cran.r-project.org/package=GWmodel)
+  - `ggwr.basic()`: Generalised GWR models with Poisson and Binomial options
+  - Nakaya, T., A. S. Fotheringham, C. Brunsdon & M. Charlton (2005) Geographically weighted Poisson regression for disease association mapping. Statistics in Medicine, 24, 2695-2717.
+  - Nakaya, T., M. Charlton, S. Fotheringham & C. Brunsdon. 2009. How to use SGWRWIN (GWR4.0). Maynooth, Ireland: National Centre for Geocomputation.
+  - Fotheringham S, Brunsdon, C, and Charlton, M (2002), Geographically Weighted Regression: The Analysis of Spatially Varying Relationships, Chichester: Wiley.
 - [lctools: Local Correlation, Spatial Inequalities, Geographically Weighted Regression and Other Tools](https://cran.r-project.org/package=lctools)
-[![CRAN Version](http://www.r-pkg.org/badges/version-ago/lctools)](https://cran.r-project.org/package=lctools)
+  - [![CRAN Version](http://www.r-pkg.org/badges/version-ago/lctools)](https://cran.r-project.org/package=lctools)
 [![CRAN Downloads](https://cranlogs.r-pkg.org/badges/lctools)](https://cran.r-project.org/package=lctools)
-
+  - `gw.glm()`: Generalised Geographically Weighted Regression (GGWR)
+  - Kalogirou, S. (2003) The Statistical Analysis and Modelling of Internal Migration Flows within England and Wales, PhD Thesis, School of Geography, Politics and Sociology, University of Newcastle upon Tyne, UK. http://gisc.gr/?mdocs-file=1245&mdocs-url=false
+  - Kalogirou, S. (2016) Destination Choice of Athenians: an application of geographically weighted versions of standard and zero inflated Poisson spatial interaction models, Geographical Analysis, 48(2),pp. 191-230. DOI: 10.1111/gean.12092 http://onlinelibrary.wiley.com/doi/10.1111/gean.12092/abstract
